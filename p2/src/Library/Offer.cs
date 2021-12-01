@@ -23,7 +23,7 @@ namespace Ucu.Poo.Defense
         {
             this.EndDate = endDate;
         }
-
+        
         public void AddItem(OfferItem item)
         {
             this.items.Add(item);
@@ -33,5 +33,17 @@ namespace Ucu.Poo.Defense
         {
             this.items.Remove(item);
         }
+
+        public string AsText()
+        {
+            mensaje = new StringBuilder();
+            foreach(OfferItem item in this.items)
+            {
+                mensaje.AppendLine($"{item.Quantity} de  {item.Product.Name} a ${item.Product.Price} n/");
+                return($"Fecha {this.EndDate} n/ {mensaje}");
+            }
+            
+        }
     }
+    
 }
